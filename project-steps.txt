@@ -1,0 +1,10 @@
+# PRIMEIROS PASSOS
+  ## POSTGRES
+    - (LOGIN)psql -U postgres
+    - (SENHA LOGIN)senha: admin
+    - (CRIAÇÃO USER) CREATE USER wongames WITH ENCRYPTED PASSWORD 'wongames';
+    - (CRIAÇÃO DATABASE) CREATE DATABASE wongames OWNER wongames;
+    - (SAIR) \q
+
+  ## STRAPI
+    - (CRIAÇÃO DO PROJETO) npx create-strapi-app api
