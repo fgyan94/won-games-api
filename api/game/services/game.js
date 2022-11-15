@@ -54,9 +54,11 @@ async function getByName(name, entityName) {
 async function create(name, entityName) {
   const item = await getByName(name, entityName);
   if (!item) {
+    const sanitizeName = name.replace(/\"/g, '').replace(/\'/g, '')
+    
     await strapi.services[entityName].create({
       name,
-      slug: slugify(name, { lower: true }),
+      slug: slugify(sanitizeName, { lower: true }),
     });
   }
 }
@@ -178,7 +180,7 @@ module.exports = {
       await createManyToManyData(products);
       await createGames(products);
     } catch (e) {
-      console("populate", Exception(e));
+      console.log("populate", Exception(e));
     }
   },
 };
